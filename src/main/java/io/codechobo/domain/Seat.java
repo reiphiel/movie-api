@@ -5,24 +5,22 @@ import lombok.Getter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.ManyToOne;
 
 /**
- * 스크린
+ * 좌석
  */
 @Entity
 @Getter
-public class Screen {
+public class Seat {
 
 	@GeneratedValue
 	@Id
 	private Long no;
 
+	private String seatNo;
 
-	@OneToMany(mappedBy = "screen")
-	private List<Seat> seats = new ArrayList<>();
-
+	@ManyToOne
+	private Screen screen;
 
 }
